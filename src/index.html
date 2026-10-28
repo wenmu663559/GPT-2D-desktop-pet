@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'">
+  <title>GPT 龙娘 · 陪你一会儿</title>
+  <link rel="stylesheet" href="pet.css">
+</head>
+<body>
+  <main id="companion" aria-label="龙娘桌宠">
+    <div id="speech" role="status" aria-live="polite"><span class="spark">✧</span><span id="words"></span></div>
+    <canvas id="pet" aria-label="龙娘，点击不同部位互动，按住拖动" tabindex="0"></canvas>
+    <div id="hint" aria-hidden="true"></div>
+    <div id="rest-label" hidden>轻轻地，做一个好梦 · 点击唤醒</div>
+    <nav id="dock" aria-label="桌宠操作">
+      <button id="dock-move" title="按住拖动，穿透时也可用" aria-label="拖动桌宠">⠿</button>
+      <button id="greet" title="聊两句" aria-label="打开对话">♧</button><span id="dock-label">陪你一会儿</span>
+      <button id="open-menu" title="打开互动菜单" aria-expanded="false">···</button>
+    </nav>
+    <section id="panel" hidden aria-label="互动与设置">
+      <header><div><small>WHITE DRAGON</small><h1>今天，想做什么？</h1></div><button id="close-panel" aria-label="关闭菜单">×</button></header>
+      <div class="actions">
+        <button data-action="yawn"><b>◡</b>打哈欠</button>
+        <button data-action="read"><b>▤</b>看书</button>
+        <button data-action="walk-left"><b>←</b>向左散步</button>
+        <button data-action="walk-right"><b>→</b>向右散步</button>
+        <button data-action="play"><b>✦</b>逗光点</button>
+        <button data-action="rest" id="rest-button"><b>☾</b>休息一下</button>
+      </div>
+      <p class="note"><button id="open-chat">聊两句 · 免费 API</button><button data-action="wake">站起来 / 停止动作</button></p>
+      <div class="settings">
+        <label>角色大小<input id="size" aria-label="角色大小" type="range" min="65" max="150" step="5" value="65"><output id="size-value">65%</output></label>
+        <label><span>安静陪伴</span><input id="quiet" type="checkbox" role="switch"></label>
+        <label><span>始终置顶</span><input id="top" type="checkbox" role="switch" checked></label>
+        <label><span>左右镜像</span><input id="mirror" type="checkbox" role="switch"></label>
+        <label><span>自主动作</span><input id="auto" type="checkbox" role="switch" checked></label>
+        <label><span>允许自主桌面散步</span><input id="roam" type="checkbox" role="switch"></label>
+      </div>
+      <footer><button id="click-through">穿透角色</button><button id="hide-pet">收起</button><button id="exit">退出</button></footer>
+      <p class="recover" id="recover-tip">穿透后底部菜单仍可用 · ⠿ 拖动 · Ctrl + Alt + Shift + D 恢复</p>
+    </section>
+    <section id="chat-panel" hidden aria-label="与龙娘聊天">
+      <header><div><small>TAKE A LITTLE BREAK</small><h1>聊两句</h1></div><button id="close-chat" aria-label="关闭对话">×</button></header>
+      <div id="chat-log" role="log" aria-live="polite"><p class="chat-info">写一句想说的话。只有按发送后才会联网。</p></div>
+      <form id="chat-form"><textarea id="chat-input" aria-label="对话内容" maxlength="800" rows="2" placeholder="今天过得怎么样？"></textarea><div class="chat-buttons"><button type="button" id="chat-reset">清空</button><button type="button" id="chat-cancel" hidden>取消等待</button><button id="chat-send" type="submit">发送 ↗</button></div></form>
+      <details id="api-settings" open><summary>免费对话设置 <span id="api-status">未连接</span></summary><p>OpenRouter 免费路由；有次数限制。输入的对话会发送给该服务。</p><input id="api-key" type="password" autocomplete="off" spellcheck="false" aria-label="OpenRouter API Key" placeholder="在这里填写 API Key"><div class="api-buttons"><button id="key-page">获取免费 Key</button><button id="save-key">保存</button><button id="clear-key">移除</button></div><p id="key-notice">密钥加密保存在本机。聊天记录仅留在本次会话。</p></details>
+    </section>
+    <section id="help" hidden><strong>龙娘暂时没能出现</strong><p>请保留完整程序目录，再重新启动。</p><button id="retry">重新加载素材</button><button id="fallback-exit">退出</button></section>
+  </main>
+  <script src="core.cjs"></script><script src="sprite.cjs"></script><script src="animation.cjs"></script><script src="motion-renderer.cjs"></script><script src="pet.js"></script>
+</body>
+</html>

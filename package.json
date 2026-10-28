@@ -1,0 +1,28 @@
+{
+  "name": "white-dragon-companion",
+  "version": "1.5.0",
+  "description": "Windows 龙娘桌宠：透明桌面陪伴、动作互动、桌面散步与可选 AI 对话",
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . DragonCompanion --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"^/(dist|test|docs|.github|.git)(/|$)\"",
+    "test": "node --test test/*.test.cjs"
+  },
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wenmu663559/GPT-2D-desktop-pet.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wenmu663559/GPT-2D-desktop-pet/issues"
+  },
+  "homepage": "https://github.com/wenmu663559/GPT-2D-desktop-pet#readme",
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "45.0.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "width": 128,
+  "height": 192,
+  "format": "rgba16f",
+  "tracks": {
+    "walk": {
+      "frames": 8,
+      "bytes": 1572864
+    },
+    "stretch": {
+      "frames": 8,
+      "bytes": 1572864
+    },
+    "wings": {
+      "frames": 8,
+      "bytes": 1572864
+    },
+    "relax": {
+      "frames": 8,
+      "bytes": 1572864
+    },
+    "read": {
+      "frames": 8,
+      "bytes": 1572864
+    }
+  }
+}
