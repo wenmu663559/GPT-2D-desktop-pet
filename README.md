@@ -4,6 +4,24 @@
 
 > 当前版本：**v1.5.0**。本仓库以恢复后的 v1.5 为基线，不包含后续随机乱逛实验与分层动画试用版。角色为同人形象，本项目与 OpenAI 无官方关联。
 
+## 下载即用
+
+**[下载 Windows x64 便携版（ZIP，约 178 MiB）](https://github.com/wenmu663559/GPT-2D-desktop-pet/releases/download/v1.5.0/GPT-2D-Desktop-Pet-v1.5.0-Windows-x64.zip)** · [版本说明与全部附件](https://github.com/wenmu663559/GPT-2D-desktop-pet/releases/tag/v1.5.0)
+
+1. 下载上面的 Windows ZIP。普通使用者无需安装 Node.js、npm 或其他开发工具。
+2. 右键 ZIP，选择“全部解压”，等待解压完成。
+3. 打开解压后的文件夹，双击 **DragonCompanion.exe**。龙娘会出现在桌面，右键人物或点底部 **···** 打开菜单。
+
+请下载名为 **GPT-2D-Desktop-Pet-v1.5.0-Windows-x64.zip** 的附件。GitHub 的绿色 Code → Download ZIP，以及 Release 自动提供的 Source code，均为开发源码包。
+
+## 实际界面
+
+以下为 v1.5 Windows 便携程序的实际截图，透明区域会显示你的桌面。
+
+| 桌面陪伴 | 看书动作 | 互动菜单 |
+| :---: | :---: | :---: |
+| <img src="docs/images/desktop-pet.png" width="210" alt="龙娘桌宠及底部控制条的实际截图"> | <img src="docs/images/reading.png" width="210" alt="龙娘看书动作的实际截图"> | <img src="docs/images/interaction-menu.png" width="280" alt="独立互动菜单，包含动作和窗口设置"> |
+
 ## 可以做什么
 
 - **桌面陪伴**：透明背景、窗口置顶、托盘收起与恢复，初始缩放为 65%。
@@ -18,7 +36,7 @@
 
 ### 直接运行
 
-如果 [Releases](https://github.com/wenmu663559/GPT-2D-desktop-pet/releases) 中提供 Windows 压缩包，解压完整目录后双击 DragonCompanion.exe。不要只移动 exe；旁边的运行文件也必须保留。
+使用上面的便携版下载入口，解压完整目录后双击 DragonCompanion.exe。保留 resources、locales、DLL 等全部配套文件，不能只复制 exe。系统要求为 Windows 10/11 x64；此包不适用于 macOS、Linux 或 Windows 32 位。
 
 本项目是桌面应用，直接打开 src/index.html 或部署到 GitHub Pages 无法启动桌宠。
 
@@ -57,6 +75,24 @@ npm start
 - 不要把密钥、个人配置或聊天内容提交到 Git。遇到限流、网络错误或缺少密钥时，应用会显示对应提示。
 
 默认用户数据位于 %APPDATA%/WhiteDragonCompanion。开发时可以用 DRAGON_PET_DATA 环境变量指定独立数据目录。
+
+## 常见问题
+
+**下载后为什么没有直接可运行的程序？**
+
+你可能下载了源码。请返回 [Release 页面](https://github.com/wenmu663559/GPT-2D-desktop-pet/releases/tag/v1.5.0)，在 Assets 中选择带 Windows-x64 的 ZIP。
+
+**双击后没有出现，或者提示素材缺失？**
+
+先确认已完整解压，没有在压缩软件内直接运行。再查看系统托盘；应用只允许一个实例，已有实例时不会再打开第二只。素材缺失时请重新解压完整文件夹。
+
+**Windows 显示发布者未知？**
+
+此便携程序没有数字签名。先确认文件来自本仓库的 Release；需要时可使用同页 SHA256SUMS.txt 校验，不要为运行本程序关闭系统防护。
+
+**一定要联网或填写 API Key 吗？**
+
+不需要。人物和动作可离线使用，只有 AI 对话需要自行配置密钥及网络。
 
 ## 开发与打包
 
